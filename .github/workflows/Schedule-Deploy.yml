@@ -1,0 +1,30 @@
+name: Schedule Deploy
+
+on:
+  schedule:
+    - cron: '0 */8 * * *' # 每 8 小时一次 (0:00, 8:00, 16:00 UTC)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check for changes  # 检查是否有文件变更
+        id: changes
+        run: |
+          git diff --exit-code || echo "::set-output name=has_changes::true"
+
+      - name: Commit changes (if any)
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config --global user.name "Automated Deploy"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Automated deployment"
+          git push
+
+      - name: Skip deployment (no changes)
+        if: steps.changes.outputs.has_changes != 'true'
+        run: echo "No changes to commit. Skipping deployment."
