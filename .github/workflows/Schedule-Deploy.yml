@@ -1,30 +1,30 @@
-name: Schedule Deploy
+name: Update Requirements
 
 on:
   schedule:
-    - cron: '0 */8 * * *' # 每 8 小时一次 (0:00, 8:00, 16:00 UTC)
+    - cron: '0 */5 * * *' 
 
 jobs:
-  build:
+  update-requirements:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          ref: mine # 替换成你的分支名称
 
-      - name: Check for changes  # 检查是否有文件变更
-        id: changes
-        run: |
-          git diff --exit-code || echo "::set-output name=has_changes::true"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # 设置你的 Python 版本
 
-      - name: Commit changes (if any)
-        if: steps.changes.outputs.has_changes == 'true'
-        run: |
-          git config --global user.name "Automated Deploy"
-          git config --global user.email "actions@github.com"
-          git add .
-          git commit -m "Automated deployment"
-          git push
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - name: Skip deployment (no changes)
-        if: steps.changes.outputs.has_changes != 'true'
-        run: echo "No changes to commit. Skipping deployment."
+      - name: Update requirements
+        run: pip freeze > requirements.txt
+
+      - name: Commit changes
+        uses: stefcurry/git-push-action@v4
+        with:
+          branch: mine # 替换成你的分支名称
+          commit_message: "Update requirements.txt"
