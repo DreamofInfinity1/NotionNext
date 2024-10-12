@@ -1,0 +1,4 @@
+name: build
+on:
+  schedule:
+    - cron: "0 */5 * * *"
