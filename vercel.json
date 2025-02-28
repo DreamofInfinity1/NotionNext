@@ -1,5 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "headers": []
+  "headers": [],
+   "functions": {
+    "app/api/**/*": {
+      "maxDuration": 500 // All functions can run for a maximum of 5 seconds
+    }
+  }
 }
