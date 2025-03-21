@@ -32,7 +32,7 @@ module.exports = {
     'Helvetica',
     '"Source Han Sans SC"',
     'Arial',
-    'Ma Shan Zheng',
+    '"Ma Shan Zheng"',
     'sans-serif',
     '"Apple Color Emoji"'
   ],
