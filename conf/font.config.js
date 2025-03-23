@@ -14,7 +14,7 @@ module.exports = {
     'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap',
     'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap',
     'https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap',
-    'https://chinese-fonts-cdn.deno.dev/packages/yzgcxst/dist/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4/result.css'
+    'https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-ExtraBoldItalic/result.css'
   ],
   // 无衬线字体 例如'"LXGW WenKai"'
   FONT_SANS: [
@@ -36,7 +36,7 @@ module.exports = {
     '"Ma Shan Zheng"',
     'sans-serif',
     '"Apple Color Emoji"',
-    'MaokenZhuyuanTi'
+    '"Maple Mono CN ExtraBold"'
   ],
   // 衬线字体 例如'"LXGW WenKai"'
   FONT_SERIF: [
