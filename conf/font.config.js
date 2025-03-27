@@ -6,7 +6,7 @@ module.exports = {
   // START ************网站字体*****************
   // ['font-serif','font-sans'] 两种可选，分别是衬线和无衬线: 参考 https://www.jianshu.com/p/55e410bd2115
   // 后面空格隔开的font-light的字体粗细，留空是默认粗细；参考 https://www.tailwindcss.cn/docs/font-weight
-  FONT_STYLE: process.env.NEXT_PUBLIC_FONT_STYLE || 'Ma Shan Zheng font-medium',
+  FONT_STYLE: process.env.NEXT_PUBLIC_FONT_STYLE || 'font-serif font-medium',
   // 字体CSS 例如 https://npm.elemecdn.com/lxgw-wenkai-webfont@1.6.0/style.css
   FONT_URL: [
     // 'https://npm.elemecdn.com/lxgw-wenkai-webfont@1.6.0/style.css',
@@ -14,7 +14,8 @@ module.exports = {
     'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap',
     'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap',
     'https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap',
-    'https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-ExtraBoldItalic/result.css'
+    'https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-ExtraBoldItalic/result.css',
+    'https://chinese-fonts-cdn.deno.dev/packages/stdgt/dist/%E4%B8%8A%E5%9B%BE%E4%B8%9C%E8%A7%82%E4%BD%93-%E5%B8%B8%E8%A7%84/result.css'
   ],
   // 无衬线字体 例如'"LXGW WenKai"'
   FONT_SANS: [
@@ -40,6 +41,7 @@ module.exports = {
   ],
   // 衬线字体 例如'"LXGW WenKai"'
   FONT_SERIF: [
+    'STDongGuanTi',
     // '"LXGW WenKai"',
     'Bitter',
     '"Noto Serif SC"',
